@@ -9,7 +9,7 @@ const config: Configuration = {
 	categories: {
 		default: {
 			appenders: ['console'],
-			level: 'debug'
+			level: 'trace'
 		}
 	}
 }
