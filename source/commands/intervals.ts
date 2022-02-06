@@ -1,7 +1,8 @@
-import { Intervals } from '../api';
+import { Argv } from 'yargs';
 
-export async function intervals() {
-	const response = await Intervals.getCurrent();
-
-	console.log(response);
+export const command = 'intervals <command>';
+export const desc = 'Interval commands';
+export const builder = (yargs: Argv) => {
+	return yargs.commandDir('intervals_cmds');
 }
+export function handler() {}
