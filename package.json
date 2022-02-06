@@ -1,5 +1,5 @@
 {
-  "name": "cli",
+  "name": "@money-saver/cli",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/yargs": "^17.0.8",
     "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "axios": "^0.25.0",
+    "log4js": "^6.4.1",
+    "yargs": "^17.3.1"
   }
 }
