@@ -10,7 +10,7 @@ const api = `${process.env.SERVER}/auth`
 export class Auth {
 	static async login(username: string, password: string) {
 		try {
-			log.info('Authenticating to %s as %s!', process.env.SERVER, username);
+			log.debug('Authenticating to %s as %s!', process.env.SERVER, username);
 
 			const response = await axios.post(api, {
 				username,

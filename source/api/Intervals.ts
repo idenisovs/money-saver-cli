@@ -21,4 +21,27 @@ export class Intervals {
 
 		return new Interval(response.data);
 	}
+
+	static async getByDate(date: string): Promise<Interval|null> {
+		log.debug('Requesting interval by date <%s>...', date);
+
+		const props: AxiosRequestConfig = {
+			headers: {
+				Cookie: `connect.sid=${tokens.token}`
+			},
+			params: {
+				date
+			}
+		};
+
+		const response = await axios.get<Interval[]>(`${api}`, props);
+
+		const [ existingInterval ] = response.data;
+
+		if (existingInterval) {
+			return new Interval(existingInterval);
+		} else  {
+			return null;
+		}
+	}
 }

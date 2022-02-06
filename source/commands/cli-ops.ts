@@ -1,1 +1,3 @@
-export default interface CliOps {}
+export default interface CliOps {
+	date: string
+}
