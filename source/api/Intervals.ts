@@ -8,6 +8,20 @@ const log = log4js.getLogger('intervals');
 const api = `${process.env.SERVER}/intervals`;
 
 export class Intervals {
+	static async getAll(): Promise<Interval[]> {
+		log.debug('Requesting current interval...');
+
+		const props: AxiosRequestConfig = {
+			headers: {
+				Cookie: `connect.sid=${tokens.token}`
+			}
+		}
+
+		const response = await axios.get<Interval[]>(`${api}`, props);
+
+		return response.data.map((item) => new Interval(item));
+	}
+
 	static async getCurrent(): Promise<Interval> {
 		log.debug('Requesting current interval...');
 

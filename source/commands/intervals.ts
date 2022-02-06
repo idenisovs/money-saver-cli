@@ -5,4 +5,3 @@ export const desc = 'Interval commands';
 export const builder = (yargs: Argv) => {
 	return yargs.commandDir('intervals_cmds');
 }
-export function handler() {}
