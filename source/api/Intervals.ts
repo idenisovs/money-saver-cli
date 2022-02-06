@@ -5,7 +5,7 @@ import { Interval } from '../shared';
 
 const log = log4js.getLogger('intervals');
 
-const api = `${process.env.server}/intervals`;
+const api = `${process.env.SERVER}/intervals`;
 
 export class Intervals {
 	static async getCurrent(): Promise<Interval> {

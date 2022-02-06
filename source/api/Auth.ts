@@ -1,12 +1,17 @@
 import axios, { AxiosError } from 'axios';
+import log4js from 'log4js';
 import tokens from './tokens';
-import { Cookies } from '../utils/Cookies';
+import { Cookies } from '../utils';
 
-const api = `${process.env.server}/auth`
+const log = log4js.getLogger('auth');
+
+const api = `${process.env.SERVER}/auth`
 
 export class Auth {
 	static async login(username: string, password: string) {
 		try {
+			log.info('Authenticating to %s as %s!', process.env.SERVER, username);
+
 			const response = await axios.post(api, {
 				username,
 				password
@@ -23,10 +28,12 @@ export class Auth {
 			const { response } = (err as AxiosError);
 
 			if (response?.status === 401) {
-				console.error('Login or password is incorrect!');
+				log.error('Login or password is incorrect!');
 			} else {
-				console.error('Something went wrong!');
+				log.error('Something went wrong!');
 			}
+
+			log.trace(response);
 
 			process.exit(2);
 		}
