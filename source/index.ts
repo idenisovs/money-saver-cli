@@ -1,1 +1,3 @@
-console.log('Hello! I`m alive!');
+global['basedir'] = __dirname;
+
+import './utils/dotenv';
