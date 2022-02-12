@@ -1,2 +1,3 @@
-export * from './Auth';
-export * from './Intervals';
+export * from './auth';
+export * from './intervals';
+export * from './payments';
