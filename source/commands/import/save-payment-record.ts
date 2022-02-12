@@ -14,13 +14,13 @@ export default async function savePaymentRecord(record: PaymentCsvRecord): Promi
 	const interval = await Intervals.getByDate(record.date);
 
 	if (!interval) {
-		log.warn('There is no interval for payment to belong! Payment date - <%s>, sum - <%d>, line = <%d>!', record.date, record.expenses, line);
+		log.warn('There is no interval for payment to belong! Payment date - <%s>, sum - <%d>, line = <%d>!', record.date, record.payment, line);
 		return;
 	}
 
 	const payment = new Payment({
 		time: new Date(record.date),
-		sum: record.expenses
+		sum: record.payment
 	});
 
 	await Payments.save(payment);
