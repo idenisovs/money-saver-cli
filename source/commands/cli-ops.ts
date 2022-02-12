@@ -1,3 +1,4 @@
 export default interface CliOps {
-	date: string
+	date: string;
+	filename: string;
 }
